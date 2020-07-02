@@ -1,0 +1,149 @@
+= form_for @product, url: home_path, method: :get, html: {id: "product-form"} do |f|
+  .containt
+    .containt__header
+      = link_to root_path, class: "containt__header__logo" do
+        = image_tag "logo.png", class: "containt__header__logo__img"
+
+  .containt__main
+    .containt__main__container
+        
+      .containt__main__container__second__name
+        出品画像
+        
+        %span.containt__main__container--gazo  必須  
+      
+      
+      .containt__main__container__inner 
+        最大10枚までアップロードできます
+          
+      
+      %label{for: "product_images_attributes_0_image", class: "image-box", id: "image-box--0"}
+        %pre.label-text
+          %i.fas.fa-camera{class: "exhibit__btn--icon"}
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード 
+
+        = f.fields_for :images, class: "image-file", id: "product_images" do |i|
+          
+          = i.file_field :image, class: "image-field"
+          %input{class:"image-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][5][image]", id: "product_images_attributes_5_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][6][image]", id: "product_images_attributes_6_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][7][image]", id: "product_images_attributes_7_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][8][image]", id: "product_images_attributes_8_image"}
+          %input{class:"image-field", type: "file", name: "product[images_attributes][9][image]", id: "product_images_attributes_9_image"}
+      .error
+
+
+    .containt__main__container__second
+      .containt__main__container__second__name
+        商品名
+        %span.containt__main__container--gazo  必須
+      .product-name   
+        =f.text_field :name,class:'product-name__field', id: "product_name",placeholder:"商品名（必須 40文字まで）"  
+
+
+      .containt__main__container__second__name
+        商品の説明
+        %span.containt__main__container--gazo  必須
+      .product-name__field__2   
+        =f.text_area :description,class:'product-name__field__2--content', id: "description",placeholder:"商品の説明（必須 1000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"  
+
+    
+    .containt__main__container__third 
+      .cell__content
+        %h3.cell__content__head
+          商品の詳細
+      .containt__main__container__second__name
+        カテゴリー
+        %span.containt__main__container--gazo  必須
+      -# =f.select :category_id, {選択してください: "---"},{},{class: "containt__main__container__third__list", id: "parent_category", name: "parent"}
+      = f.collection_select :category_id, @category_parent_array, :id, :name, {prompt: '---'}, id: "parent_category", name: "parent", class: "containt__main__container__third__list"
+      
+      .fas.fa-chevron-down.fa-lg.containt__icon
+
+
+      .containt__main__container__second__name
+        ブランド
+        %span.containt__main__container--gazo2  任意
+      .product-name   
+        =f.text_field :name,class:'product-name__field', name: "product_brand",placeholder:"例）シャネル"    
+
+
+      .containt__main__container__second__name
+        商品の状態
+        %span.containt__main__container--gazo  必須
+      = f.select :condition, [["---", ""],["新品、未使用", "新品、未使用"],["未使用に近い", "未使用に近い"],["目立った傷や汚れなし", "目立った傷や汚れなし"],["やや傷や汚れあり", "やや傷や汚れあり"],["傷や汚れあり", "傷や汚れあり"],["全体的に状態が悪い", "全体的に状態が悪い"]], selected: @product.condition, class: "containt__main__container__inner__sell-form__select-wrap__list"
+      .fas.fa-chevron-down.fa-lg.containt__icon
+
+
+
+    .containt__main__container__force
+      .containt__main__container__force__option
+        配送について
+        %span.containt__main__container__force__option__option2  ？   
+      .containt__main__container__second__name
+        配送料の負担
+        %span.containt__main__container--gazo  必須   
+      =f.select :delivery_cost, [["---", ""],["送料込み(出品者負担)", "送料込み(出品者負担)"],["着払い(購入者負担)", "着払い(購入者負担)"]], selected: @product.delivery_cost, class: "containt__main__container__inner__sell-form__select-wrap__list"   
+      .fas.fa-chevron-down.fa-lg.containt__icon
+
+
+      .containt__main__container__second__name
+        発送元の地域
+        %span.containt__main__container--gazo  必須
+      = f.collection_select :delivery_origin, Prefecture.all, :id, :name, prompt: "---", selected: @product.delivery_origin, class: "containt__main__container__inner__sell-form__select-wrap__list"  
+         
+      .fas.fa-chevron-down.fa-lg.containt__icon
+
+
+      .containt__main__container__second__name
+        発送までの日数
+        %span.containt__main__container--gazo  必須   
+      = f.select :delivery_days, [["---", ""],["1~2日で発送", "1~2日で発送"],["2~3日で発送", "2~3日で発送"],["4~7日で発送", "4~7日で発送"]], selected: @product.delivery_days, class: "containt__main__container__inner__sell-form__select-wrap__list"   
+      .fas.fa-chevron-down.fa-lg.containt__icon
+
+    .containt__main__container__fifth
+      .containt__main__container__force__option
+        価格(￥300~9,999,999)
+        %span.containt__main__container__force__option__option2  ？  
+
+      .containt__main__container__fifth__box
+        .containt__main__container__fifth__box__option
+          販売価格
+          %span.containt__main__container__fifth__box__option--2  必須 
+        .containt__main__container__fifth__box__maney  
+          ￥
+          =f.text_field :price,class: "containt__main__container__fifth__box__maney--box2", id: "", placeholder: "例) 300", autocomplete: "off" 
+          
+      
+      .containt__main__container__fifth__box__commission
+        .containt__main__container__fifth__box__commission__up
+          販売手数料(10％)
+        .containt__main__container__fifth__box__commission__up--number
+          ー
+
+      .containt__main__container__fifth__box__commission__2
+        .containt__main__container__fifth__box__commission__2__down
+          販売利益
+        .containt__main__container__fifth__box__commission__2__down--number
+          ー
+      .containt__main__container__fifth__box__commission__3
+        =f.submit "変更する", class: "containt__main__container__fifth__box__commission__3__exhibition"
+        = submit_tag "キャンセル", class: "containt__main__container__fifth__box__commission__3__draft"
+
+  .containt__foot
+    .containt__foot__footer
+      .containt__foot__footer__clearfix
+        = link_to "プライバシーポリシー", "/", class: "containt__foot__footer__clearfix__text"
+        = link_to "フリマ利用規約", "/", class: "containt__foot__footer__clearfix__text"
+        = link_to "特定商取引に関する表記", "/", class: "containt__foot__footer__clearfix__text"
+    .containt__foot__logo    
+      = link_to root_path, class: "containt__foot__logo__position" do
+        = image_tag "logo.png", size: "80x65", class: "containt__foot__logo__position--img"
+    
+      .containt__foot__logo__text  ©︎ 2019 Fmarket
+

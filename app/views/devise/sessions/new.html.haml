@@ -1,0 +1,28 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .users
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login__form
+          %p.login__text アカウントをお持ちでない方はこちら
+          = link_to "/signup", class: "contents__btn contents__btn--login" do
+            新規会員登録
+
+        .login__form
+          = link_to "https://www.facebook.com/", class: "contents__btn contents__btn--facebook" do
+            = icon('fab fa-facebook-square',  class: "contents__btn--icon")
+            Facebookで登録する
+            
+
+          = link_to "/", class: "contents__btn contents__btn--google" do
+            = icon('fab fa-google',  class: "contents__btn--icon")
+            Googleで登録する
+        .login__form
+          = f.text_field :email, class: "login__input", placeholder:"メールアドレス"
+          = f.password_field :password, class: "login__input", placeholder:"パスワード"
+          = f.submit "ログイン", class: "login__btn"
+          = link_to "パスワードをお忘れの方", "/", class: "login__password"
+    = render 'layouts/second_footer'
+

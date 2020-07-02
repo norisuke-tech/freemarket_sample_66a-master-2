@@ -1,0 +1,72 @@
+%article 
+  .i__content
+    %section.mypage__user
+      = link_to "/" ,class: "mypage__user__icon" do
+        %figure
+          = image_tag "/member.png", alt: "Rails icon", class: "imgicon", width: "60px", height: "60px"
+        %h2.mypage__name 名前
+        .mypage__number
+          .mypage__text 評価
+          %span.bold 0
+          .mypage__text__right 出品数
+          %span.bold 0
+    %section.mypage__tab
+      %ul.mypage__tab__tabs
+        %li.mypage__tab__tabs__active
+          %h3
+            = link_to "/", class: "mypage__tab__tabs__active__data" do
+              お知らせ
+        %li.mypage__tab__tabs__active.mypage__tab__tabs__2
+          %h3
+            = link_to "/", class: "mypage__tab__tabs__active__data" do
+              やることリスト
+      .mypage__tab__content
+        %ul.mypage__tab__content__item
+          %li
+            = link_to "/", class: "mypage__tab__content__item__link" do
+              %figure
+                = image_tag "logo.png", size: "110x40"
+              .mypage__tab__content__item__link__body
+                .mypage__tab__content__item__link__body__text 事務局から個別メッセージ「Googleログイン通知」
+                %time.mypage__tab__content__item__link__time
+                  %i.fas.fa-clock.mypage__tab__content__item__link__time__icon
+                  %span.mypage__tab__content__item__link__time__day 1日前
+              %i.fas.fa-chevron-right.mypage__tab__content__item__link__time__i
+          %li
+            = link_to "/", class: "mypage__tab__content__item__link" do
+              %figure
+                = image_tag "logo.png", size: "110x40"
+              .mypage__tab__content__item__link__body
+                .mypage__tab__content__item__link__body__text 事務局から個別メッセージ「Googleログイン通知」
+                %time.mypage__tab__content__item__link__time
+                  %i.fas.fa-clock.mypage__tab__content__item__link__time__icon
+                  %span.mypage__tab__content__item__link__time__day 1日前
+              %i.fas.fa-chevron-right.mypage__tab__content__item__link__time__i
+          %li
+            = link_to "/", class: "mypage__tab__content__item__link" do
+              %figure
+                = image_tag "logo.png", size: "110x40"
+              .mypage__tab__content__item__link__body
+                .mypage__tab__content__item__link__body__text 事務局から個別メッセージ「Googleログイン通知」
+                %time.mypage__tab__content__item__link__time
+                  %i.fas.fa-clock.mypage__tab__content__item__link__time__icon
+                  %span.mypage__tab__content__item__link__time__day 1日前
+              %i.fas.fa-chevron-right.mypage__tab__content__item__link__time__i
+          
+          %li.mypage__tab__content__item__go
+            = link_to "/", class: "mypage__tab__content__item__go__list" do
+              一覧を見る
+    %section.mypage__tab__container
+      %h2.mypage__tab__container__head 購入した商品
+      %ul.mypage__tab__tabs
+        %li.mypage__tab__tabs__active
+          %h3
+            = link_to "/", class: "mypage__tab__tabs__active__data" do
+              取引中
+        %li.mypage__tab__tabs__active.mypage__tab__tabs__2
+          %h3
+            = link_to "/", class: "mypage__tab__tabs__active__data" do
+              過去の取引
+      .mypage__tab__contents
+        %ul.mypage__tab__contents__now
+          %li.mypage__tab__contents__now__found 取引中の商品がありません

@@ -1,0 +1,64 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .purchase-main
+      %section.purchase__container
+        %h2.buy__header 購入内容の確認
+        %section.buy__item
+          .buy__inner
+            .buy__item__box
+              %h3.buy__item__image
+                = image_tag @product.images[0].image.url, alt: "Rails icon", class: "image", width: "80px", height: "80px"
+              .buy__item__detail
+                %p.buy__item__name
+                  = @product.name
+                %p.buy__item__price
+                  = @product.price.to_s(:delimited, delimiter: ',')
+                  %span.item__shipping （税込）送料込み
+        %section.buy__item
+          .buy__inner
+            %ul.buy__price__table
+              %li.buy__price__pay
+                .buy__price__label
+                  支払い金額
+            %ul.buy__accordion
+              %li.buy__accordion__parent
+                .checbox__default
+                  %i.fas.fa-square.check
+                  .icon__label
+                    ポイントを使用（所持ポイント: P0）
+            %section.buy__content
+              %h3.buy__content__inner 支払い方法
+              - if @default_card_information.blank?
+                %br /
+              - else
+                -#以下カード情報を表示
+                = "**** **** **** " + @default_card_information.last4
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+
+                = link_to "/", class: "buy__content__link" do
+                  %i.fas.fa-plus-circle.circle
+                  %p.buy__content__user
+                    登録してください
+            %section.buy__content
+              %h3.buy__content__inner
+                配送先
+              = "〒" + @address.postal_code.to_s.first(3) + "-" +  @address.postal_code.to_s.last(4)
+              %br
+              = @address.prefectures + @address.city + @address.address + @address.room_number
+              %br
+              = current_user.nickname
+              = link_to "/", class: "buy__content__link" do
+                %i.fas.fa-plus-circle.circle
+                %p.buy__content__user
+                  登録してください 
+            %section.buy__content
+
+              = link_to pay_purchase_index_path(product_id: @product.id), method: :post do
+                %button.buy__btn{type:"submit"}  購入する
+    = render 'layouts/second_footer'
+

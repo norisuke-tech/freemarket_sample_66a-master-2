@@ -1,0 +1,60 @@
+.header-wrapper
+  .header-upper-title
+    = link_to "/" do
+      = image_tag "logo.png", size: "134x36"
+  
+    = text_field_tag :search, "", placeholder: "何かお探しですか？", class: "search-box"
+    %label
+      %i.fas.fa-search.search-icon
+      = submit_tag 'search', name: nil, class: "search-btn"
+      
+  .header-lower-left
+    .header-lower-left__category
+      %div.category_btn
+        %i.fas.fa-list-ul.list-icon
+        %span.parent_category
+          カテゴリーから探す
+
+    .header-lower-left__brands
+      %i.fas.fa-tags.tags-icon
+      %span ブランドから探す
+  .header-lower-right
+
+    -# = link_to "/signup", class: "header-lower-right__signup" do
+    -#   %span.signup-btn 新規登録
+
+    -# = link_to "/users/login", class: "header-lower-right__login" do
+    -#   %span.login-btn ログイン
+
+
+
+    
+    - if user_signed_in? 
+      .user__nav__login
+        = link_to "/", class: "login_ok" do
+          %i.fas.fa-heart.login_i
+          いいね！一覧
+    
+        = link_to "/", class: "login_ok" do
+          %i.fas.fa-bell.login_i
+          お知らせ
+
+        = link_to "/", class: "login_ok" do
+          %i.fas.fa-check.login_i
+          やることリスト
+    
+        = link_to "/mypage", class: "login_ok ok" do
+          = image_tag "/member.png", alt: "Rails icon", class: "imgicon", width: "20px", height: "20px"
+          マイページ
+    - else
+      .user__nav__logout
+        = link_to "/signup", class: "header-lower-right__signup" do
+          %span.signup-btn 新規登録
+
+        = link_to "/users/sign_in", class: "header-lower-right__login" do
+          %span.login-btn ログイン
+
+
+
+
+

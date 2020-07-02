@@ -1,0 +1,18 @@
+- if name.category_id == 1
+  = link_to home_path(id: name), class "product-list" do
+    .product-list__image
+      - name__image = name.images.limit(1).pluck(:image)
+      = image_tag name_image[0], class: "product-images"
+    .product-list__body
+      %h3.name__image
+        = %name.name
+      .details
+        %ul
+          %li 
+            = name.price
+            円
+          %li
+            =icon("fa", "star", class: "like-icon")
+            0
+        %p 
+          （税込）

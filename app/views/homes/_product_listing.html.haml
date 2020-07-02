@@ -1,0 +1,13 @@
+= link_to product_path(product) do
+  .main-new-arrival__product
+    .main-new-arrival__product--image
+      = image_tag product.images.first.image, class: "main-new-arrival__product--image--first", size: "200x200"
+    - if product.sales_states == 2 # 売り切れの場合
+      .main-new-arrival__product--image__ribbon-sm
+        SOLD
+
+    .main-new-arrival__product--price
+      ¥
+      = product.price.to_s(:delimited, delimiter: ',')
+    .main-new-arrival__product--name
+      = product.name

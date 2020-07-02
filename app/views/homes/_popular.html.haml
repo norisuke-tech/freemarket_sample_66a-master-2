@@ -1,0 +1,64 @@
+.main-top.single
+  %div
+    = image_tag "banner1.jpg", class: "main-top__banner", size: "1440x388"
+  %div
+    = image_tag "banner2.jpg", class: "main-top__banner", size: "1440x388"
+  %div
+    = image_tag "banner3.jpg", class: "main-top__banner", size: "1440x388"
+.main-popular
+  .main-popular__title
+    人気のカテゴリー
+  = link_to "/", class:"main-popular__tags" do
+    レディース
+  = link_to "/", class: "main-popular__tags" do
+    メンズ
+  = link_to "/", class: "main-popular__tags" do
+    家電・スマホ・カメラ
+  = link_to "/", class: "main-popular__tags" do
+    おもちゃ・ホビー・グッズ
+.main-new-arrival
+  %h3.main-new-arrival__category#ladies
+    レディース新着アイテム
+    .main-new-arrival__category__more
+      もっと見る ＞
+
+  .main-new-arrival__gazo
+     
+    - @products_ladies.each do |product|
+      = render partial: 'product_listing', locals: {product: product}
+
+
+.main-new-arrival
+  %h3.main-new-arrival__category#mens
+    メンズ新着アイテム
+    .main-new-arrival__category__more
+      もっと見る ＞
+
+  .main-new-arrival__gazo    
+    - @products_mens.each do |product|
+      = render partial: 'product_listing', locals: {product: product}
+
+
+.main-new-arrival
+  .main-new-arrival__category#home_electronics
+    家電・スマホ・カメラ新着アイテム
+    .main-new-arrival__category__more
+      もっと見る ＞
+
+  .main-new-arrival__gazo    
+    - @products_home_electronics.each do |product|
+      = render partial: 'product_listing', locals: {product: product}
+
+
+.main-new-arrival
+  .main-new-arrival__category#toys
+    おもちゃ・ホビー・グッズ新着アイテム
+    .main-new-arrival__category__more
+      もっと見る ＞
+
+  .main-new-arrival__gazo    
+    - @products_toys.each do |product|
+      = render partial: 'product_listing', locals: {product: product}
+
+
+ 

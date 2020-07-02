@@ -1,0 +1,168 @@
+.mypage__nav__list__item {
+  padding: 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  width: 250px;
+  height: 16px;
+  position: relative;
+  right: 5px;
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #F5F5F5;
+  &__icon {
+    color: #ccc;
+    position: absolute;
+    right: 17px;
+  }
+}
+
+.mypage__nav__list__item:hover {
+  background-color: #FAFAFA;
+}
+.mypage__nav__list__item:active {
+  background-color: #eee;
+  font-weight: 600;
+}
+
+.mypage__nav__head {
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.newcontents {
+  margin: 40px 200px;
+  display: flex;
+}
+
+.i__content {
+  margin-left: 40px;
+}
+.imgicon {
+  border-radius: 50%;
+}
+
+.mypage__user {
+  padding: 20px;
+  width: 660px;
+  height: 160px;
+  text-align: center;
+  background-color: lightblue;
+  font-size: 12px;
+  &__icon {
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+.mypage__number {
+  margin-top: 8px;
+  display: inline-flex;
+
+}
+
+.mypage__name {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.mypage__text__right {
+  margin-left: 16px;
+}
+
+.bold {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.mypage__tab__tabs {
+  display: flex;
+  text-align: center;
+  line-height: 72px;
+
+  &__active {
+    height: 74px;
+    border-top: 2px solid #2CCBD1;
+    background-color: #fff;
+    width: 50%;
+    
+    &__data {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  &__2 {
+    background-color: #eee;
+    border-style: none;
+  }
+}
+
+.mypage__tab__tabs__active :hover {
+ opacity: 0.5;
+}
+
+.mypage__tab__content {
+  background-color: #fff;
+}
+.mypage__tab__content__item__link {
+  text-decoration: none;
+  padding: 16px;
+  color: #333333;
+  display: flex;
+  font-size: 14px;
+  
+  border-bottom: 1px solid #F5F5F5;
+  &__body {
+    margin: 15px 68px 0 40px;
+  }
+  &__time {
+    color: #888;
+    &__i {
+      line-height: 72px;
+    }
+  }
+}
+
+.mypage__tab__content__item__link:hover {
+  background-color: #fafafa;
+}
+
+.mypage__tab__content__item__go {
+  padding: 16px;
+  text-align: center;
+  line-height: 90px;
+  &__list {
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+    height: 100px;
+    display: block;
+    font-size: 18px;
+  }
+}
+
+.mypage__tab__content__item__go__list:hover {
+  background-color: #fafafa;
+}
+
+.mypage__tab__container {
+  margin-top: 40px;
+  &__head {
+    padding: 0 16px;
+    height: 72px;
+    background-color: #FAFAFA;
+    font-weight: bold;
+    line-height: 72px;
+  }
+}
+
+.mypage__tab__contents {
+  height: 240px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 225px;
+  color: #ccc;
+}

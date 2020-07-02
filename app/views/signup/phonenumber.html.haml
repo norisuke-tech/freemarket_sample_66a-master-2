@@ -1,0 +1,21 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .main
+      .registration
+        電話番号の確認
+      .contents
+        = form_for(@user, url: addressinformation_signup_index_path, method: :post, html: {class: "address-form", id: "signup-form"}) do |f|
+          .address__main
+            = f.label :phone_number, "携帯電話の番号", class: "address__main__label" 
+            = f.text_field :phone_number, class: "address__main__input", placeholder:"携帯電話の番号を入力", id: "phone_number"
+          %p.page 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit "SMSを送信する", class: "contents__sub__btn"
+          %p.page ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .contents__sub__right
+            = link_to "電話番号の確認が必要な理由＞", "/", class: "contents__sub__right__link "
+
+  = render 'layouts/second_footer'
+       

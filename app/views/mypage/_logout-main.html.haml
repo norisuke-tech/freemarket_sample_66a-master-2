@@ -1,0 +1,7 @@
+%article
+  .logout
+    .logout__content
+      = form_for(@user, url: destroy_user_session_path, method: :delete, html: {class: "logout-form", id: "logout-form"}) do |f|
+        .logout__content__single
+          = f.submit "ログアウト", class: "logout__content__single__btn"
+          

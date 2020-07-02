@@ -1,0 +1,79 @@
+.all
+  .header
+    .header__logo
+      = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+  .main
+    .registration
+      住所情報入力
+    .contents
+      = form_for(@user, url: completed_signup_index_path, method: :post, html: {class: "address-form", id: "signup-form"}) do |f|
+        - @user.errors.full_messages.each do |message|
+          %p#destination_firstname-error.invalid 
+            = message
+        .address__main.form
+          = f.label :fullname, "お名前（全角）", class: "address__main__label" 
+          %span.address__main__require 必須
+          .address__sub
+            = f.text_field :destination_firstname, class: "address__main__input--hurf", placeholder:"例）山田", id: "destination_firstname"
+            = f.text_field :destination_lastname, class: "address__main__input--hurf", placeholder:"例）彩", id: "destination_lastname"
+          #name_error
+        .address__main.form
+          = f.label :fullname, "お名前カナ（全角）", class: "address__main__label" 
+          %span.address__main__require 必須
+          .address__sub
+            = f.text_field :destination_firstname_kana, class: "address__main__input--hurf", placeholder:"例）ヤマダ", id: "destination_firstname_kana"
+            = f.text_field :destination_lastname_kana, class: "address__main__input--hurf", placeholder:"例）アヤ", id: "destination_lastname_kana"
+          #name_kana_error
+        
+        .address__main.form
+          = f.label :postal_code, "郵便番号", class: "address__main__label" 
+          %span.address__main__require 必須
+          = f.text_field :postal_code, class: "address__main__input", placeholder:"例）452-0942", id: "postal_code"
+        
+        .address__main.form
+          = f.label :prefectures, "都道府県", class: "address__main__label" 
+          %span.address__main__require 必須
+          = f.text_field :prefectures, class: "address__main__input", placeholder:"例）愛知県", id: "prefectures"
+        #prefectures_error
+        .address__main.form
+          = f.label :city, "市区町村", class: "address__main__label" 
+          %span.address__main__require 必須
+          = f.text_field :city, class: "address__main__input", placeholder:"例）清須市", id: "city"
+        
+        .address__main.form
+          = f.label :address, "番地", class: "address__main__label" 
+          %span.address__main__require 必須
+          = f.text_field :address, class: "address__main__input", placeholder:"例）清洲田中町", id: "address"
+        
+        .address__main.form
+          = f.label :room_number, "マンション名やビル名、部屋番号", class: "address__main__label" 
+          = f.text_field :room_number, class: "address__main__input", placeholder:"例）例）メゾン清洲96-2", id: "room_number"
+        
+        %p.form__info
+          マンション名やビル名、部屋番号は任意でご入力ください。
+
+        .address__main.form
+          = f.label :delivery_number, "お届け先の電話番号", class: "address__main__label" 
+          = f.text_field :delivery_number, class: "address__main__input", placeholder:"例）09019880909", id: "delivery_number"
+        
+        %p.form__info
+          電話番号は任意でご入力ください。
+
+    
+
+        .address__main.group
+          %p.single-text
+            住所情報は、商品の送付先住所となりますので正確に入力してください。「会員登録」のボタンを押すことにより、会員登録を完了します。
+
+        
+
+     
+        
+        .contents__sub
+          = f.submit "次へ進む", class: "contents__sub__btn"
+
+
+
+
+  = render 'layouts/second_footer'
+

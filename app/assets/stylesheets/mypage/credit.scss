@@ -1,0 +1,60 @@
+.chapter__container {
+  width: 700px;
+  height: 360px;
+  background-color: #fff;
+  text-align: center;
+  margin-left: 40px;
+  &__head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #F5F5F5;
+    font-weight: bold;
+  }
+  &__inner {
+    padding: 64px;
+    &__content {
+      margin: 0 126px;
+      text-align: left;
+      &__head {
+
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+    }
+    &__card {
+      padding: 24px 0;
+      border-bottom: 1px solid #F5F5F5;
+      &__add {
+        margin: 0 126px;
+        &__btn {
+          margin-bottom: 8px;
+          background-color: #2CCBD1;
+          text-decoration: none;
+          width: 320px;
+          height: 50px;
+          display: block;
+          color: #fff;
+          line-height: 50px;
+          &__credit {
+            margin-right: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.chapter__container__inner__card__add__btn:hover {
+  opacity: 0.8;
+}
+.settings__link {
+  text-decoration: none;
+  color: #0099E8;
+  display: block;
+  text-align: right;
+  margin-top: 40px;
+  &__item {
+    margin-left: 8px;
+  }
+}

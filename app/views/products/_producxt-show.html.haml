@@ -1,0 +1,98 @@
+.all
+  .main
+    .showmain
+      .content_right
+        .content_top
+          .itembox
+            %h2.itembox__name 
+              =@product.name
+            .itembox__body
+              = image_tag @main_photo.image, size: "300x300", class: "detail__main__content__image__main__photo"
+              %ul.gazou
+                - @product.images.each do |image|
+                  .detail__main__content__image__sub__thumb
+                    = image_tag image.image, size: "60x60", class: "detail__main__content__image__sub__thumb__photo"
+            .itembox__price
+              %span.itembox__price__mane 
+                =@product.price
+              .itembox__price-detail
+                %span（税込）
+                %span 送料込み
+            .itemdetail
+              =@product.description
+            .table
+              %table
+                %tbody
+                  %tr 
+                    %th.table__item 出品者
+                    %td.table__sub 
+                      = @product.user.lastname
+                  %tr 
+                    %th.table__item カテゴリ
+                    %td.table__sub
+                      =@product.category.root.name
+                      =@product.category.parent.name
+                      =@product.category.name
+
+
+
+
+                  %tr 
+                    %th.table__item ブランド
+                    %td.table__sub 
+                      シャネル
+                  %tr 
+                    %th.table__item 商品のサイズ
+                    %td.table__sub 
+                      = @product.size.size
+                      
+                  %tr 
+                    %th.table__item 商品の状態
+                    %td.table__sub 
+                      =@product.condition
+                  %tr 
+                    %th.table__item 配送料の負担
+                    %td.table__sub 
+                      =@product.delivery_cost
+                  %tr 
+                    %th.table__item 発送元の地域
+                    %td.table__sub
+                      = @prefecture.name
+                      
+                  %tr 
+                    %th.table__item 発送日の目安
+                    %td.table__sub 
+                      =@product.delivery_days
+
+              .optionalarea
+                %ul.optional
+                  %li#likebtn.optionalbtn
+                    = link_to "/", class: "optionalbtn__none__right" do
+                      %i.fas.fa-star
+                      お気に入り
+                      0
+                %ul.optional
+                  %li.optionalbtn
+                    = link_to "/", class: "optionalbtn__none" do
+                      %i.fas.fa-flag
+                      不適切な商品の通報
+          .itemcober
+
+            - if @product.sales_states == 2 # 売り切れの場合
+              .detail__main__btn--gray
+                .homesdelete 売り切れました
+            - elsif  user_signed_in? && @product.user_id == current_user.id # ユーザーの商品の場合
+              .change__box
+                = link_to "商品の編集", edit_product_path, class: "homesedit"
+                %p.text-center or
+                = link_to "出品を再開する", new_home_path, class: "homesedit"
+
+                = link_to "この商品を削除する", product_path(@product), method: :delete,class: "homesdelete"
+                
+
+            - else # ユーザーの商品ではない場合
+              = link_to "購入画面に進む  ",  product_purchase_index_path(@product), class: "homesdelete"
+              
+
+
+     

@@ -1,0 +1,2 @@
+class SalesState < ApplicationRecord
+end

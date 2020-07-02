@@ -1,0 +1,18 @@
+%article
+  %section.chapter__container
+    %h2.chapter__container__head 支払い方法
+    .chapter__container__inner 
+      %section
+        .chapter__container__inner__content
+          %h3.chapter__container__inner__content__head クレジットカード一覧
+        %ul.chapter__container__inner__list
+      %section.chapter__container__inner__card
+        .chapter__container__inner__card__add
+          = link_to "/card/new", class: "chapter__container__inner__card__add__btn" do
+            %i.fas.fa-credit-card.chapter__container__inner__card__add__btn__credit
+            クレジットカードを追加する
+      .settings
+        = link_to "/", class: "settings__link" do
+          %span 支払い方法について
+          %i.fas.fa-chevron-right.settings__link__item
+   

@@ -1,0 +1,43 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .main
+      .registration
+        新規会員登録
+      .contents
+        
+
+        
+        = link_to "signup/member", class: "contents__btn contents__btn--mail" do
+          = icon('far fa-envelope',  class: "contents__btn--icon")
+          メールアドレスで登録する
+
+        = link_to "https://www.facebook.com/", class: "contents__btn contents__btn--facebook" do
+          = icon('fab fa-facebook-square',  class: "contents__btn--icon")
+          Facebookで登録する
+          
+
+        = link_to "/", class: "contents__btn contents__btn--google" do
+          = icon('fab fa-google',  class: "contents__btn--icon")
+          Googleで登録する
+    
+  .footer
+    .footer__all
+      %ul.footer__all__contents
+        %li
+          = link_to "/", class: "footer__all__contents__btn__1" do
+            プライバシーポリシー
+        %li 
+          = link_to "/", class: "footer__all__contents__btn" do
+            フリマ利用規約
+        %li 
+          = link_to "/", class: "footer__all__contents__btn" do
+            特定商取引に関する表記
+        
+      .footer__all__logo
+        = image_tag "/logo-white.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+        
+      .footer__all__copy
+        %small © FURIMA, inc.  

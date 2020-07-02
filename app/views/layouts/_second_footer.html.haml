@@ -1,0 +1,18 @@
+.footer
+  .footer__all
+    %ul.footer__all__contents
+      %li
+        = link_to "/", class: "footer__all__contents__btn__1" do
+          プライバシーポリシー
+      %li 
+        = link_to "/", class: "footer__all__contents__btn" do
+          フリマ利用規約
+      %li 
+        = link_to "/", class: "footer__all__contents__btn" do
+          特定商取引に関する表記
+      
+    .footer__all__logo
+      = image_tag "/logo-white.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+      
+    .footer__all__copy
+      %small © FURIMA, inc.  

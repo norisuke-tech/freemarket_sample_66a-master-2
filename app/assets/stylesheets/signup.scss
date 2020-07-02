@@ -1,0 +1,125 @@
+.all {
+  background: #F5F5F5;
+  padding: 0;
+  margin: 0;
+  height: 50%;
+
+  .single-container {
+    padding-bottom: 100px;
+  }
+  .header {
+    height: 122px;
+    width: 100%;
+  
+    &__logo {
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+  .registration {
+    text-align: center;
+    font-size: 22px;
+    padding: 32px 0;
+    background: #FFFFFF;
+    margin: 0 auto;
+    width: 700px;
+    font-weight: bold;
+    border-bottom: 1px solid #F5F5F5;
+  }
+  .contents {
+    background: #FFFFFF;
+    margin: 0 auto;
+    width: 697px;
+    padding: 24px 0 40px;
+      &__btn{
+        display: block;
+        height: 47px;
+        width :340px;
+        margin:0 auto;
+        border-radius: 10px;
+        font-size:14px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 47px;
+      
+      
+
+        &--facebook{
+          background-color: #385184;
+          color:#fff;
+          margin-top: 18px;
+          position: relative;
+          .fa-facebook-square{
+            background: #385184;
+            position: absolute;
+            top: 11px;
+            left: 16px;
+            font-size: 26px;
+          }
+        }
+        &--mail{
+          background-color: #2CCBD1;
+          color: #fff;
+          position: relative;
+          .fa-envelope {
+            background: #2CCBD1;
+            position: absolute;
+            top: 11px;
+            left: 16px;
+            font-size: 26px;
+          }
+        }
+        &--google{
+          background-color: #ffffff;
+          color: #333;
+          border: #979797 solid 1px;
+          margin-top: 18px;
+          position: relative;
+          .fa-google {
+            position: absolute;
+            top: 11px;
+            left: 16px;
+            font-size: 26px;
+          }
+        }
+        &--login {
+          background-color: #0099E8;
+          margin-top: 8px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .footer{
+    margin: 0 auto;
+    padding: 110px 0 40px 0;
+    margin:0 484px;
+    height: 140px;
+    width: 456px;
+    &__all{
+      text-align: center;
+  
+      &__contents {
+        display: flex;
+        &__btn {
+          font-size: 11px;
+          text-decoration: none;
+          margin-left:15px;
+          color: #333333;
+          &__1 {
+            margin-left: 52px;
+            font-size: 11px;
+            text-decoration: none;
+            color: #333333;
+          }
+          }
+      }
+      &__logo{
+        margin-top: 40px;
+          }
+      &__copy{
+        font-size: 14px;
+          }
+      }
+    }
+

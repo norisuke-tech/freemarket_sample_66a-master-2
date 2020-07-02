@@ -1,0 +1,15 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .main
+      .registration
+        会員登録完了
+      .contents
+        = form_for(@user, url: new_user_session_path, method: :get, html: {class: "address-form", id: "signup-form"}) do |f|
+          .contents__midle
+            ありがとうございます。会員登録が完了しました。
+             
+          = f.submit "フリマを始める", class: "contents__sub__btn"
+    = render 'layouts/second_footer'

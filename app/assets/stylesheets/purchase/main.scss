@@ -1,0 +1,90 @@
+.purchase__container {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.buy__header {
+  font-size: 22px;
+  padding: 32px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.buy__item {
+  padding: 32px 16px;
+  border-top: 1px solid #f5f5f5;
+  text-align: center;
+  &__box {
+    display: flex;
+  }
+  &__detail {
+    margin-left: 16px;
+    display: block;
+    text-align: left;
+  }
+  &__price {
+    font-weight: bold;
+  }
+}
+
+.buy__inner {
+  margin: 0 auto;
+  max-width: 343px;
+}
+
+.buy__price__pay{
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.buy__accordion {
+  color: #888;
+  margin: 24px 0 32px 0;
+}
+
+.checbox__default {
+  display: flex;
+}
+
+.icon__label {
+  padding-left: 10px;
+  
+}
+
+.check {
+  margin-top: 5px;
+}
+
+.buy__content {
+  padding: 32px 0;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__link {
+    text-decoration: none;
+    color: #0099e8;
+    display: flex;
+    margin-top: 8px;
+  }
+&__user {
+  margin-left: 4px;
+}
+}
+
+.circle {
+  margin-top: 5px;
+}
+
+.buy__btn {
+  background-color: #2CCCD1;
+  color: #fff;
+  width: 100%;
+  line-height: 48px;
+}

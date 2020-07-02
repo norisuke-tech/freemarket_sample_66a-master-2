@@ -1,0 +1,25 @@
+.all
+  .single-container
+    .header
+      .header__logo
+        = image_tag "/logo.png", alt: "Rails icon", class: "image", width: "185px", height: "49px"
+    .purchase-main
+      %section.purchase__container
+        %h2.buy__header 購入が完了しました
+    
+        %section.buy__item
+          .buy__inner
+            .buy__item__box
+              %h3.buy__item__image
+                = image_tag @product.images[0].image.url, alt: "Rails icon", class: "image", width: "80px", height: "80px"
+              .buy__item__detail
+                %p.buy__item__name
+                  = @product.name
+                %p.buy__item__price
+                  = @product.price.to_s(:delimited, delimiter: ',')
+                  %span.item__shipping （税込）送料込み
+          = link_to "/", class: "buy__contents" do
+            トップページに戻る
+
+
+    = render 'layouts/second_footer'

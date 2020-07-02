@@ -1,0 +1,83 @@
+.all
+  .main
+    .showmain
+      .content_right
+        .content_top
+          .itembox
+            %h2.itembox__name product3
+            .itembox__body
+              = image_tag "/kare.png", alt: "Rails icon", class: "show-image", width: "560px", height: "346px"
+              %ul.gazou
+                %li.gazou__image
+                  = image_tag "/sakana.png", alt: "Rails icon", class: "show-image__gazou", width: "140px", height: "87px"
+                %li.gazou__image
+                  = image_tag "/kare.png", alt: "Rails icon", class: "show-image__gazou", width: "140px", height: "87px"
+                %li.gazou__image
+                  = image_tag "/sarada.png", alt: "Rails icon", class: "show-image__gazou", width: "140px", height: "87px"
+            .itembox__price
+              %span.itembox__price__mane ¥30000
+              .itembox__price-detail
+                %span（税込）
+                %span 送料込み
+            .itemdetail
+              親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+            .table
+              %table
+                %tbody
+                  %tr 
+                    %th.table__item 出品者
+                    %td.table__sub hoge
+                  %tr 
+                    %th.table__item カテゴリ
+                    %td.table__sub
+                      =@product.category.root.name
+                      =@product.category.parent.name
+                      =@product.category.name
+
+
+
+
+                  %tr 
+                    %th.table__item ブランド
+                    %td.table__sub 
+                  %tr 
+                    %th.table__item 商品のサイズ
+                    %td.table__sub 
+                  %tr 
+                    %th.table__item 商品の状態
+                    %td.table__sub 未使用に近い
+                  %tr 
+                    %th.table__item 配送料の負担
+                    %td.table__sub 送料込み（出品者負担）
+                  %tr 
+                    %th.table__item 発送元の地域
+                    %td.table__sub
+                      = link_to "岩手県", "/", class: "table__sub__content"
+                  %tr 
+                    %th.table__item 発送日の目安
+                    %td.table__sub 4-7で発送
+
+              .optionalarea
+                %ul.optional
+                  %li#likebtn.optionalbtn
+                    = link_to "/", class: "optionalbtn__none__right" do
+                      %i.fas.fa-star
+                      お気に入り
+                      0
+                %ul.optional
+                  %li.optionalbtn
+                    = link_to "/", class: "optionalbtn__none" do
+                      %i.fas.fa-flag
+                      不適切な商品の通報
+          .itemcober
+            - if  user_signed_in? && @product.user_id == current_user.id # ユーザーの商品の場合
+              .change__box
+                = link_to "商品の編集", "/homes/:id/edit", class: "homesedit"
+                %p.text-center or
+                = link_to "出品を再開する", "/", class: "homesedit"
+
+                = link_to  mypage_index_path(@product), method: :delete, data: { confirm: "商品を削除します。よろしいですか？"} do
+                  .homesdelete
+                    この商品を削除する
+                
+
